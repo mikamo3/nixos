@@ -14,6 +14,24 @@
       experimental-features = ["nix-command" "flakes"];
     };
   };
+  virtualisation = {
+    docker = {
+      enable = true;
+      rootless = {
+        enable = true;
+        setSocketVariable = true; # $DOCKER_HOSTを設定
+      };
+    };
+  };
+  programs = {
+    neovim = {
+      enable = true;
+      defaultEditor = true; 
+      viAlias = true;
+      vimAlias = true;
+    };
+  };
+  nixpkgs.config.allowUnfree = true;
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
