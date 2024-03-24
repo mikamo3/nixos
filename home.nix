@@ -1,17 +1,19 @@
-{ pkgs, ... }:
+{ pkgs,services, ... }:
 {
   home = rec {
-    username="alice";
+    username="mikamo";
     homeDirectory = "/home/${username}";
-    stateVersion = "22.11";
+    stateVersion = "23.11";
   };
   programs.home-manager.enable = true;
   home.packages = with pkgs; [
     bat
+    mimeo
     bottom
     eza
     httpie
     pingu
     ripgrep
+    iperf
   ];
 }
