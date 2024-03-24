@@ -36,9 +36,21 @@
       vimAlias = true;
     };
   };
- services.logind.extraConfig = ''
- HandlePowerKey=suspend
- '';
+
+  fonts = {
+    packages = with pkgs; [
+      nerdfonts
+      noto-fonts
+      noto-fonts-cjk-sans
+      noto-fonts-cjk-serif
+      noto-fonts-emoji
+      font-awesome
+    ];
+  };
+  
+  services.logind.extraConfig = ''
+  HandlePowerKey=suspend
+  '';
   nixpkgs.config.allowUnfree = true;
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
@@ -77,7 +89,16 @@
   # services.printing.enable = true;
 
   # Enable sound.
-  # sound.enable = true;
+  sound.enable = true;
+security.rtkit.enable = true;
+services.pipewire = {
+  enable = true;
+  alsa.enable = true;
+  alsa.support32Bit = true;
+  pulse.enable = true;
+  # If you want to use JACK applications, uncomment this
+  #jack.enable = true;
+};
   # hardware.pulseaudio.enable = true;
 hardware.bluetooth.enable = true;
 hardware.bluetooth.powerOnBoot = true;
@@ -95,11 +116,12 @@ hardware.bluetooth.powerOnBoot = true;
       
     ];
   };
-
+  security.polkit.enable = true;
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    firefox
     wget
     git
     inetutils
@@ -109,8 +131,17 @@ hardware.bluetooth.powerOnBoot = true;
     python3
     nodejs
     openjdk
+    grim # screenshot functionality
+    slurp # screenshot functionality
+    wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
+    mako # notification system developed by swaywm maintainer
+    helvum
   ];
-
+  programs.sway = {
+    enable = true;
+    wrapperFeatures.gtk = true;
+  };
+  services.gnome.gnome-keyring.enable = true;
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
