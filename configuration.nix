@@ -89,6 +89,7 @@ hardware.bluetooth.powerOnBoot = true;
   users.users.mikamo = {
     isNormalUser = true;
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    shell = pkgs.fish;
     packages = with pkgs; [
       
       
@@ -117,7 +118,7 @@ hardware.bluetooth.powerOnBoot = true;
   #   enable = true;
   #   enableSSHSupport = true;
   # };
-
+  programs.fish.enable = true;
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
