@@ -12,7 +12,7 @@
     config = rec {
       modifier = "Mod4";
       # Use kitty as default terminal
-      terminal = "kitty"; 
+      terminal = "wezterm"; 
       startup = [
         # Launch Firefox on start
         {command = "firefox";}
@@ -46,5 +46,18 @@
     wezterm
     procs
     bash-completion
+    feh
+    xfce.catfish
+    leafpad
+    gthumb
+    inkscape
+    vlc
+    spotify
+    gpick
+    keepassxc
+    grive2
+    slack
+    zoom
+
   ];
 }
