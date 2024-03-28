@@ -3,22 +3,7 @@
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
 { inputs, config, lib, pkgs, ... }:
-
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ]
-    ++ (with inputs.nixos-hardware.nixosModules; [
-      common-cpu-amd
-      #common-gpu-amd
-      common-pc-ssd
-    ]);
-  nix = {
-    settings = {
-      experimental-features = ["nix-command" "flakes"];
-    };
-  };
   virtualisation = {
     docker = {
       enable = true;
@@ -28,51 +13,15 @@
       };
     };
   };
-  programs = {
-    neovim = {
-      enable = true;
-      defaultEditor = true; 
-      viAlias = true;
-      vimAlias = true;
-    };
-  nix-ld.enable = true;
-  };
   programs.thunar.enable = true;
   programs.nm-applet.enable = true;
-  fonts = {
-    packages = with pkgs; [
-      nerdfonts
-      noto-fonts
-      noto-fonts-cjk-sans
-      noto-fonts-cjk-serif
-      noto-fonts-emoji
-      font-awesome
-    ];
-  };
   
-  services.logind.extraConfig = ''
-  HandlePowerKey=suspend
-  '';
-  nixpkgs.config.allowUnfree = true;
-  # Use the systemd-boot EFI boot loader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.kernelPackages = pkgs.linuxKernel.packages.linux_zen;
-  hardware.cpu.amd.updateMicrocode = true;
-  networking.hostName = "kamo3work"; # Define your hostname.
-  # Pick only one of the below networking options.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
-
-  # Set your time zone.
-  time.timeZone = "Asia/Tokyo";
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Select internationalisation properties.
-  i18n.defaultLocale = "ja_JP.UTF-8";
   # console = {
   #   font = "Lat2-Terminus16";
   #   keyMap = "us";
@@ -118,34 +67,8 @@ hardware.bluetooth.powerOnBoot = true;
       
     ];
   };
-  security.polkit.enable = true;
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    firefox
-    chromium
-    wget
-    git
-    inetutils
-    sshpass
-    nettools
-    tcpdump
-    python3
-    nodejs
-    openjdk
-    grim # screenshot functionality
-    slurp # screenshot functionality
-    wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
-    mako # notification system developed by swaywm maintainer
-    helvum
-    ffmpeg
-    flameshot
-    firejail
-    gparted
-    veracrypt
-ulauncher
-  ];
   services.xserver = {
     enable = true;
 
@@ -167,7 +90,6 @@ ulauncher
      ];
     };
   };
- environment.pathsToLink = [ "/libexec" ];
 #  programs.sway = {
 #    enable = true;
 #    wrapperFeatures.gtk = true;
@@ -183,10 +105,6 @@ ulauncher
   programs.fish.enable = true;
   # List services that you want to enable:
 
-  # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
-  services.openssh.settings.PermitRootLogin = "yes";
-  services.timesyncd.enable = true;
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
@@ -214,7 +132,6 @@ ulauncher
   # and migrated your data accordingly.
   #
   # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
-  system.stateVersion = "23.11"; # Did you read the comment?
 
 }
 
