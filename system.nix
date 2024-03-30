@@ -1,9 +1,10 @@
-{ inputs,config, lib, pkgs, modulesPath, ... }:
+{ inputs, config, lib, pkgs, modulesPath, ... }:
 
 {
-#hardware
+  #hardware
   imports =
-    [ # Include the results of the hardware scan.
+    [
+      # Include the results of the hardware scan.
       ./hardware-configuration.nix
     ]
     ++ (with inputs.nixos-hardware.nixosModules; [
@@ -15,28 +16,29 @@
   nixpkgs.config.allowUnfree = true;
   hardware.cpu.amd.updateMicrocode = true;
 
-#boot
+  #boot
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelPackages = pkgs.linuxKernel.packages.linux_zen;
-#nix configure
+  #nix configure
   nix = {
     settings = {
       keep-outputs = true;
       keep-derivations = true;
-      experimental-features = ["nix-command" "flakes"];
+      experimental-features = [ "nix-command" "flakes" ];
     };
   };
-#systemd
+
+  #systemd
   services.logind.extraConfig = ''
-  HandlePowerKey=suspend
+    HandlePowerKey=suspend
   '';
-#envirnment
+  #envirnment
   environment.pathsToLink = [ "/libexec" ];
-#locale timezone
+  #locale timezone
   time.timeZone = "Asia/Tokyo";
   i18n.defaultLocale = "ja_JP.UTF-8";
-#security
+  #security
   security.polkit.enable = true;
 
   system.stateVersion = "23.11"; # Did you read the comment?
