@@ -1,4 +1,4 @@
-{ inputs }:
+{ nixos-hardware }:
 { config, lib, pkgs, modulesPath, ... }:
 
 {
@@ -10,7 +10,7 @@
     ../program.nix
     ../configuration.nix
   ]
-  ++ (with inputs.nixos-hardware.nixosModules; [
+  ++ (with nixos-hardware.nixosModules; [
     common-cpu-amd
     #common-gpu-amd
     common-pc-ssd
