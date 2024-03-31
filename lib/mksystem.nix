@@ -1,11 +1,8 @@
 { nixpkgs, inputs }:
 
-name:
-{ system
-, user
-}:
+{ name, user, system }:
 let
-  machineConfig = ../machines/${name}.nix;
+  machineConfig = (import ../machines/${name}.nix { inherit inputs; });
   userConfig = ../users/${user}/nixos.nix;
 in
 nixpkgs.lib.nixosSystem rec{
@@ -13,5 +10,7 @@ nixpkgs.lib.nixosSystem rec{
   modules = [
     machineConfig
     userConfig
+
   ];
+
 }

@@ -15,7 +15,7 @@
   };
   programs.thunar.enable = true;
   programs.nm-applet.enable = true;
-  
+
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -41,32 +41,24 @@
 
   # Enable sound.
   sound.enable = true;
-security.rtkit.enable = true;
-services.pipewire = {
-  enable = true;
-  alsa.enable = true;
-  alsa.support32Bit = true;
-  pulse.enable = true;
-  # If you want to use JACK applications, uncomment this
-  #jack.enable = true;
-};
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+    # If you want to use JACK applications, uncomment this
+    #jack.enable = true;
+  };
   # hardware.pulseaudio.enable = true;
-hardware.bluetooth.enable = true;
-hardware.bluetooth.powerOnBoot = true;
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.powerOnBoot = true;
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.mikamo = {
-    isNormalUser = true;
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-    shell = pkgs.fish;
-    packages = with pkgs; [
-      
-      
-    ];
-  };
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   services.xserver = {
@@ -75,9 +67,9 @@ hardware.bluetooth.powerOnBoot = true;
     desktopManager = {
       xterm.enable = false;
     };
-   
+
     displayManager = {
-        defaultSession = "none+i3";
+      defaultSession = "none+i3";
     };
 
     windowManager.i3 = {
@@ -87,13 +79,13 @@ hardware.bluetooth.powerOnBoot = true;
         i3status # gives you the default i3 status bar
         i3lock #default i3 screen locker
         i3blocks #if you are planning on using i3blocks over i3status
-     ];
+      ];
     };
   };
-#  programs.sway = {
-#    enable = true;
-#    wrapperFeatures.gtk = true;
-#  };
+  #  programs.sway = {
+  #    enable = true;
+  #    wrapperFeatures.gtk = true;
+  #  };
   services.gnome.gnome-keyring.enable = true;
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

@@ -15,22 +15,13 @@
       };
     in
     {
-      nixosConfigurations = {
-        myNixOS = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          modules = [
-            ./system.nix
-            ./network.nix
-            ./font.nix
-            ./program.nix
-            ./configuration.nix
-          ];
-          specialArgs = {
-            inherit inputs;
-          };
-        };
-
+      nixosConfigurations.kvm_sandbox = mkSystem {
+        name = "kvm_sandbox";
+        user = "mikamo";
+        system = "x86_64-linux";
       };
+
+
 
       homeConfigurations = {
         myHome = home-manager.lib.homeManagerConfiguration {

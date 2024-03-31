@@ -1,17 +1,7 @@
 { inputs, config, lib, pkgs, modulesPath, ... }:
 
 {
-  #hardware
-  imports =
-    [
-      # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ]
-    ++ (with inputs.nixos-hardware.nixosModules; [
-      common-cpu-amd
-      #common-gpu-amd
-      common-pc-ssd
-    ]);
+
 
   nixpkgs.config.allowUnfree = true;
   hardware.cpu.amd.updateMicrocode = true;
