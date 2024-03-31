@@ -11,6 +11,7 @@ nixpkgs.lib.nixosSystem rec{
   inherit system;
   modules = [
     machineConfig
+    userConfig
     inputs.home-manager.nixosModules.home-manager
     {
       home-manager.useGlobalPkgs = true;

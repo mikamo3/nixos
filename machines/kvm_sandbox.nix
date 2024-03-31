@@ -5,6 +5,8 @@
   imports = [
     ./hardware/kvm_default.nix
     ../system.nix
+    ../pkgs/system/bluetooth.nix
+    ../pkgs/system/apps.nix
     ../network.nix
     ../font.nix
     ../program.nix
