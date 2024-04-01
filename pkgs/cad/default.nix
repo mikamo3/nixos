@@ -1,5 +1,7 @@
 { pkgs, ... }: {
   environment.systemPackages = with pkgs; [
-    chromium
+    kicad
+    freecad
+    librecad
   ];
 }

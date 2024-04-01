@@ -1,6 +1,7 @@
-{ ... }: {
-  imports = [
-    ./chromium.nix
-    ./firefox.nix
+{ pkgs, ... }: {
+  environment.systemPackages = with pkgs; [
+    chromium
+    firefox
+    google-chrome
   ];
 }

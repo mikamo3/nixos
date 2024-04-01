@@ -15,6 +15,7 @@
     ../pkgs/sound/pipewire.nix
     ../pkgs/program.nix
     ../pkgs/browser
+    ../pkgs/cad
   ]
   ++ (with nixos-hardware.nixosModules; [
     common-cpu-amd
