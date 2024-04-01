@@ -50,9 +50,6 @@
     # If you want to use JACK applications, uncomment this
     #jack.enable = true;
   };
-  # hardware.pulseaudio.enable = true;
-  hardware.bluetooth.enable = true;
-  hardware.bluetooth.powerOnBoot = true;
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;

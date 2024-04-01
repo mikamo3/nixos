@@ -3,11 +3,11 @@
 
 {
   imports = [
-    ./hardware/kvm_default.nix
-    ../system.nix
+    ./hardware/kvm-default.nix
+    ../pkgs/system/configure.nix
     ../pkgs/system/bluetooth.nix
     ../pkgs/system/apps.nix
-    ../network.nix
+    ../pkgs/system/kernel-zen.nix
     ../font.nix
     ../program.nix
     ../configuration.nix
@@ -17,4 +17,6 @@
     #common-gpu-amd
     common-pc-ssd
   ]);
+
+  system.stateVersion = "23.11"; # Did you read the comment?
 }

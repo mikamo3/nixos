@@ -18,6 +18,13 @@ nixpkgs.lib.nixosSystem rec{
       home-manager.useUserPackages = true;
       home-manager.users.${user} = import homeConfig;
     }
+    {
+      config._module.args = {
+        currentSystem = system;
+        currentSystemName = name;
+        currentSystemUser = user;
+      };
+    }
   ];
 
 }
