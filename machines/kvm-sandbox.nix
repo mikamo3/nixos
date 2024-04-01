@@ -8,9 +8,13 @@
     ../pkgs/system/bluetooth.nix
     ../pkgs/system/apps.nix
     ../pkgs/system/kernel-zen.nix
-    ../font.nix
-    ../program.nix
-    ../configuration.nix
+    ../pkgs/desktop/program.nix
+    ../pkgs/desktop/font.nix
+    ../pkgs/desktop/i3.nix
+    ../pkgs/development/docker.nix
+    ../pkgs/sound/pipewire.nix
+    ../pkgs/program.nix
+    ../pkgs/browser
   ]
   ++ (with nixos-hardware.nixosModules; [
     common-cpu-amd

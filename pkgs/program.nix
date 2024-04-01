@@ -3,16 +3,17 @@
   programs = {
     neovim = {
       enable = true;
-      defaultEditor = true; 
+      defaultEditor = true;
       viAlias = true;
       vimAlias = true;
     };
+    fish.enable = true;
+    thunar.enable = true;
+    nm-applet.enable = true;
   };
 
   environment.systemPackages = with pkgs; [
     vim
-    firefox
-    chromium
     wget
     git
     inetutils
