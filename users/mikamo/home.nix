@@ -19,7 +19,11 @@
       ];
     };
   };
-
+  home.pointerCursor = with pkgs;{
+    name = "Volantes";
+    package = volantes-cursors;
+    size = 64;
+  };
   home.packages = with pkgs; [
     bat
     mimeo
@@ -34,22 +38,12 @@
     p7zip
     xz
     htop
-    neofetch
-    aria2
-    unar
-    xsel
-    xclip
-    usbutils
-    jq
-    dmidecode
-    silver-searcher
     wezterm
     procs
     bash-completion
     feh
     xfce.catfish
     leafpad
-    gthumb
     inkscape
     vlc
     spotify

@@ -3,6 +3,10 @@
     feh
     xfce.catfish
     leafpad
+    xdg-user-dirs
+    gnome.file-roller
+    flameshot
+    gthumb
   ];
 }
 
