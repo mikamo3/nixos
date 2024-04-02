@@ -16,6 +16,9 @@
     ../pkgs/program.nix
     ../pkgs/browser
     ../pkgs/cad
+    ../pkgs/communication
+    ../pkgs/terminal/wezterm.nix
+    ../pkgs/utils
   ]
   ++ (with nixos-hardware.nixosModules; [
     common-cpu-amd
