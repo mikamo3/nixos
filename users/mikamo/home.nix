@@ -47,7 +47,6 @@
     inkscape
     vlc
     spotify
-    gpick
     keepassxc
     grive2
     slack

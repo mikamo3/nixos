@@ -26,6 +26,7 @@
     ../pkgs/communication
     ../pkgs/terminal/wezterm.nix
     ../pkgs/utils
+    ../pkgs/media
   ]
   ++ (with nixos-hardware.nixosModules; [
     common-cpu-amd
