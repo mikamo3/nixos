@@ -1,4 +1,4 @@
-{ ... }: {
+{ pkgs, ... }: {
   sound.enable = true;
   security.rtkit.enable = true;
   services.pipewire = {
@@ -7,4 +7,7 @@
     alsa.support32Bit = true;
     pulse.enable = true;
   };
+  environment.systemPackages = with pkgs; [
+    helvum
+  ];
 }

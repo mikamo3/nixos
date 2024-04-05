@@ -1,8 +1,7 @@
-{ nixpkgs, inputs }:
+{ nixpkgs, nixos-hardware, home-manager }:
 
 { name, user, system }:
 let
-  nixos-hardware = inputs.nixos-hardware;
   machineConfig = (import ../machines/${name}.nix { inherit nixos-hardware; });
   userConfig = ../users/${user}/nixos.nix;
   homeConfig = ../users/${user}/home.nix;
@@ -12,7 +11,7 @@ nixpkgs.lib.nixosSystem rec{
   modules = [
     machineConfig
     userConfig
-    inputs.home-manager.nixosModules.home-manager
+    home-manager.nixosModules.home-manager
     {
       home-manager.useGlobalPkgs = true;
       home-manager.useUserPackages = true;

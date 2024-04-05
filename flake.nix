@@ -8,10 +8,10 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }@inputs:
+  outputs = { self, nixpkgs, nixos-hardware, home-manager, ... }@inputs:
     let
       mkSystem = import ./lib/mksystem.nix {
-        inherit nixpkgs inputs;
+        inherit nixpkgs nixos-hardware home-manager;
       };
     in
     {
