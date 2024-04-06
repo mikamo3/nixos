@@ -18,7 +18,6 @@ in
       #common-gpu-amd
       common-pc-ssd
     ]);
-  #    ../pkgs/desktop/program.nix
   #    ../pkgs/desktop/font.nix
   #    ../pkgs/desktop/i3.nix
   #    ../pkgs/desktop/input.nix

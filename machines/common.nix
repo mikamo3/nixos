@@ -1,5 +1,9 @@
 { config, lib, pkgs, modulesPath, currentSystemName, ... }:
+let
+  cpuType = lib.mkDefault "amd";
+in
 {
+
   #nix configure
   nix = {
     settings = {
@@ -47,7 +51,11 @@
     xsel
     xz
     zip
-  ];
+    microcodeAmd
+  ]
+  # microcode
+  ++ lib.optional (cpuType == "amd") pkgs.microcodeAmd
+  ++ lib.optional (cpuType == "intel") pkgs.microcodeIntel;
 
   #program
   programs = {

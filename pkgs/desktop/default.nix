@@ -6,7 +6,7 @@
     desktopManager = {
       xterm.enable = false;
     };
-
+    displayManager.lightdm.greeters.slick.enable = true;
     displayManager = {
       defaultSession = "none+i3";
     };
@@ -18,18 +18,20 @@
         i3status # gives you the default i3 status bar
         i3lock #default i3 screen locker
         i3blocks #if you are planning on using i3blocks over i3status
+        polybar
       ];
     };
   };
   services.gnome.gnome-keyring.enable = true;
+
   fonts = {
     packages = with pkgs; [
+      font-awesome
       hackgen-nf-font
       noto-fonts
       noto-fonts-cjk-sans
       noto-fonts-cjk-serif
       noto-fonts-emoji
-      font-awesome
     ];
   };
   # TODO:fontconfig
@@ -43,6 +45,9 @@
 
   # default desktop applications
   environment.systemPackages = with pkgs; [
+    dex
+    dunst
+    picom
     autorandr
     feh
     flameshot
@@ -58,6 +63,7 @@
     xfce.thunar
     xfce.thunar-archive-plugin
     xfce.thunar-volman
+    wezterm
   ];
 }
 

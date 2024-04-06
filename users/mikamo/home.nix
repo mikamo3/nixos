@@ -7,20 +7,10 @@
   };
   programs.home-manager.enable = true;
   programs.powerline-go.enable = true;
-  wayland.windowManager.sway = {
-    enable = true;
-    config = rec {
-      modifier = "Mod4";
-      # Use kitty as default terminal
-      terminal = "wezterm";
-      startup = [
-        # Launch Firefox on start
-        { command = "firefox"; }
-      ];
-    };
-  };
+
   home.pointerCursor = with pkgs;{
-    name = "Volantes";
+    x11.enable = true;
+    name = "volantes_cursors";
     package = volantes-cursors;
     size = 64;
   };
