@@ -3,14 +3,16 @@
 let
   enableBluetooth = true;
   enableSound = true;
-  bluetooth = import ../pkgs/system/bluetooth.nix { useBluetooth = enableBluetooth; };
+  bluetooth = import ./packages/system/bluetooth.nix { useBluetooth = enableBluetooth; };
+  commonPackages = import ./packages/common.nix { inherit pkgs; };
 in
 {
   imports = [
     ./hardware/kvm-default.nix
     ./common.nix
+    ./packages/common.nix
     bluetooth
-    ../pkgs/desktop
+    ./packages/desktop
   ]
   ++ (with nixos-hardware.nixosModules;
     [

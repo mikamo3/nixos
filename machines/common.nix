@@ -19,54 +19,6 @@ in
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelPackages = pkgs.linuxKernel.packages.linux_zen;
 
-  # common packages
-  environment.systemPackages = with pkgs; [
-    aria2
-    bat
-    dmidecode
-    eza
-    fzf
-    git
-    htop
-    iperf
-    jq
-    killall
-    mimeo
-    neofetch
-    nettools
-    nodejs
-    openjdk
-    p7zip
-    python3
-    silver-searcher
-    sl
-    sshpass
-    tcpdump
-    unar
-    unzip
-    usbutils
-    vim
-    wget
-    xclip
-    xsel
-    xz
-    zip
-    microcodeAmd
-  ]
-  # microcode
-  ++ lib.optional (cpuType == "amd") pkgs.microcodeAmd
-  ++ lib.optional (cpuType == "intel") pkgs.microcodeIntel;
-
-  #program
-  programs = {
-    neovim = {
-      enable = true;
-      defaultEditor = true;
-      viAlias = true;
-      vimAlias = true;
-    };
-    fish.enable = true;
-  };
 
   #system config
 
