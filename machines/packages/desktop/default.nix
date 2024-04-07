@@ -8,14 +8,18 @@ in
     desktopManager = {
       xterm.enable = false;
     };
-    displayManager.lightdm.greeters.slick.enable = true;
     displayManager = {
       defaultSession = "none+i3";
+      lightdm.greeters.slick = {
+        enable = true;
+        font.name = "Noto Serif CJK JP";
+      };
     };
 
     windowManager.i3 = {
       enable = true;
       extraPackages = with pkgs; [
+        dmenu
         ulauncher #application launcher most people use
         i3status # gives you the default i3 status bar
         i3lock #default i3 screen locker
@@ -34,6 +38,9 @@ in
       noto-fonts-cjk-sans
       noto-fonts-cjk-serif
       noto-fonts-emoji
+      (import ../../../pkgs/fonts/cica { inherit pkgs; })
+      (import ../../../pkgs/fonts/plemoljp { inherit pkgs; })
+      (import ../../../pkgs/fonts/line-seed-jp { inherit pkgs; })
     ];
   };
   # TODO:fontconfig
@@ -47,25 +54,28 @@ in
 
   # default desktop applications
   environment.systemPackages = with pkgs; [
+    autorandr
     dex
     dunst
-    picom
-    autorandr
     feh
     flameshot
+    fontconfig
     gnome.file-roller
     gparted
     gthumb
+    gucharmap
     leafpad
     networkmanagerapplet
+    picom
     volantes-cursors
+    wezterm
     xdg-user-dirs
     xdg-utils
     xfce.catfish
     xfce.thunar
     xfce.thunar-archive-plugin
     xfce.thunar-volman
-    wezterm
+    gnome.seahorse
   ];
 }
 

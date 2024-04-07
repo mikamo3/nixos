@@ -1,15 +1,17 @@
 { pkgs, ... }:
-stdenv.mkDerivation rec {
-  pname = "cica";
+with pkgs;
+stdenv.mkDerivation rec{
+  name = "cica";
   version = "5.0.3";
 
   src = fetchzip {
-    url = "https://github.com/miiton/Cica/releases/download/v.${version}/Cica_v${version}.zip";
+    url = "https://github.com/miiton/Cica/releases/download/v${version}/Cica_v${version}.zip";
     hash = "sha256-BtDnfWCfD9NE8tcWSmk8ciiInsspNPTPmAdGzpg62SM=";
+    stripRoot = false;
   };
 
   installPhase = ''
-    install -Dm644 *.ttf -t $out/share/fonts/truetype
+    install -Dm644 *.ttf -t $out/share/fonts/Cica
   '';
 
   meta = with lib; {

@@ -49,5 +49,11 @@ in
     HandlePowerKey=suspend
   '';
 
+  # Support Printers
+  services.printing.enable = true;
+  services.printing.drivers = with pkgs; [
+    gutenprint
+  ];
+
   system.stateVersion = "23.11"; # Did you read the comment?
 }

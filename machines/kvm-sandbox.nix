@@ -13,6 +13,10 @@ in
     ./packages/common.nix
     bluetooth
     ./packages/desktop
+    ./packages/browser
+    ./packages/networkclient
+    ./packages/security
+    ./packages/storage
   ]
   ++ (with nixos-hardware.nixosModules;
     [

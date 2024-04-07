@@ -43,6 +43,7 @@ in
     xsel
     xz
     zip
+    smartmontools
   ]
   # microcode
   ++ lib.optional (cpuType == "amd") pkgs.microcodeAmd
