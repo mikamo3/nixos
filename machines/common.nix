@@ -36,6 +36,15 @@ in
   networking.hostName = currentSystemName; # Define your hostname.
   networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
 
+  #timesyncd
+  networking.timeServers = [
+    "ntp.nict.jp"
+    "0.pool.ntp.org"
+    "1.pool.ntp.org"
+    "2.pool.ntp.org"
+    "3.pool.ntp.org"
+  ];
+
   #common services
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;

@@ -16,4 +16,10 @@
   };
   home.packages = with pkgs; [
   ];
+
+  #dotfiles
+  xdg.enable = true;
+  xdg.configFile = {
+    "i3/config".text = builtins.readFile ./config/i3/config;
+  };
 }
