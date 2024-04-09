@@ -14,12 +14,21 @@
     package = volantes-cursors;
     size = 64;
   };
+
+  xdg.enable = true;
   home.packages = with pkgs; [
   ];
+  xdg.userDirs.enable = true;
+  xdg.userDirs.createDirectories = true;
 
   #dotfiles
-  xdg.enable = true;
+  #i3
   xdg.configFile = {
     "i3/config".text = builtins.readFile ./config/i3/config;
   };
+  #dunst
+  services.dunst = import ./dunst.nix { };
+  programs.fish = import ./fish.nix { inherit pkgs; };
+  programs.git = import ./git.nix { };
 }
+

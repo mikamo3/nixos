@@ -2,7 +2,7 @@
 {
   users.users.mikamo = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "docker" ];
     shell = pkgs.fish;
     packages = with pkgs; [
     ];

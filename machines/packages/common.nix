@@ -47,6 +47,7 @@ in
     wget
     xclip
     xsel
+    fd
     xz
     zip
   ]
