@@ -30,5 +30,6 @@
   services.dunst = import ./dunst.nix { };
   programs.fish = import ./fish.nix { inherit pkgs; };
   programs.git = import ./git.nix { };
+  services.picom = import ./picom.nix { };
 }
 

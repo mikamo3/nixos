@@ -17,6 +17,7 @@ in
     ./packages/networkclient
     ./packages/security
     ./packages/storage
+    ./packages/development/vscode.nix
   ]
   ++ (with nixos-hardware.nixosModules;
     [

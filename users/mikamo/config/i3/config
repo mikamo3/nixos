@@ -199,12 +199,8 @@ gaps inner 10
 smart_gaps on
 smart_borders on
 
-# autostart
-exec --no-startup-id picom -b --config ~/.config/picom/picom.conf
-exec --no-startup-id dunst
-exec --no-startup-id ~/bin/dwall_select
-exec --no-startup-id xrandr --output HDMI-A-0 --scale 0.9999x0.9999
 exec --no-startup-id ulauncher --hide-window
+
 # scratchpad
     # You can "split" the current object of your focus with
     # $mod+b or $mod+v, for horizontal and vertical splits
