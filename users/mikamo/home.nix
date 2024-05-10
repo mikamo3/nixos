@@ -1,4 +1,4 @@
-{ pkgs, services, ... }:
+{ config, lib, pkgs, ... }:
 {
   home = rec {
     username = "mikamo";
@@ -22,8 +22,8 @@
   xdg.userDirs.createDirectories = true;
 
   #dotfiles
-  #i3
   xdg.configFile = {
+    #i3
     "i3/config".text = builtins.readFile ./config/i3/config;
   };
   #dunst
@@ -31,5 +31,9 @@
   programs.fish = import ./fish.nix { inherit pkgs; };
   programs.git = import ./git.nix { };
   services.picom = import ./picom.nix { };
-}
+  #rofi
+  programs.rofi = import ./rofi.nix { };
+  #polybar
+  services.polybar = import ./polybar.nix { inherit pkgs; };
 
+}

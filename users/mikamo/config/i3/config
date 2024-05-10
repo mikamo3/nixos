@@ -199,8 +199,6 @@ gaps inner 10
 smart_gaps on
 smart_borders on
 
-exec --no-startup-id ulauncher --hide-window
-
 # scratchpad
     # You can "split" the current object of your focus with
     # $mod+b or $mod+v, for horizontal and vertical splits
@@ -213,7 +211,7 @@ bindsym $mod+Shift+p move scratchpad
 # keybinding
 bindsym $mod+Tab workspace next
 bindsym $mod+Shift+Tab workspace prev
-bindsym $mod+d exec ulauncher-toggle
+bindsym $mod+d exec rofi -show
 bindsym $mod+e exec nemo
 
 # for rotary encorder

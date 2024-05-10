@@ -15,6 +15,7 @@
       };
     in
     {
+
       nixosConfigurations.kvm-sandbox = mkSystem {
         name = "kvm-sandbox";
         user = "mikamo";
