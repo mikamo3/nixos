@@ -7,6 +7,8 @@
     ./picom.nix
     ./rofi.nix
     ./polybar.nix
+    ./fontconfig.nix
+    ./wezterm.nix
   ];
   home = rec {
     username = "mikamo";
