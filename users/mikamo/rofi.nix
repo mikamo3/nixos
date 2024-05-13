@@ -1,7 +1,7 @@
 { ... }:
 {
-  enable = true;
-  extraConfig =
+  programs.rofi.enable = true;
+  programs.rofi.extraConfig =
     {
       modi = "drun,window,ssh";
       show-icons = true;

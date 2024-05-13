@@ -1,5 +1,13 @@
 { config, lib, pkgs, ... }:
 {
+  imports = [
+    ./dunst.nix
+    ./fish.nix
+    ./git.nix
+    ./picom.nix
+    ./rofi.nix
+    ./polybar.nix
+  ];
   home = rec {
     username = "mikamo";
     homeDirectory = "/home/${username}";
@@ -26,14 +34,5 @@
     #i3
     "i3/config".text = builtins.readFile ./config/i3/config;
   };
-  #dunst
-  services.dunst = import ./dunst.nix { };
-  programs.fish = import ./fish.nix { inherit pkgs; };
-  programs.git = import ./git.nix { };
-  services.picom = import ./picom.nix { };
-  #rofi
-  programs.rofi = import ./rofi.nix { };
-  #polybar
-  services.polybar = import ./polybar.nix { inherit pkgs; };
 
 }

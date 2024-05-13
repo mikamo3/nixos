@@ -1,6 +1,6 @@
-{ pkgs, ... }: {
-  enable = true;
-  plugins = [
+{ ... }: {
+  programs.fish.enable = true;
+  programs.fish.plugins = [
     {
       name = "fish-fzf";
       src = fetchTarball {
@@ -9,10 +9,10 @@
       };
     }
   ];
-  shellAliases = {
+  programs.fish.shellAliases = {
     ll = "exa -la";
     pbcopy = "xclip";
     pbpaste = "xclip -o";
   };
-  interactiveShellInit = builtins.readFile ./config/fish/config.fish;
+  programs.fish.interactiveShellInit = builtins.readFile ./config/fish/config.fish;
 }

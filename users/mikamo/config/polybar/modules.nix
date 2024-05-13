@@ -158,4 +158,29 @@
     bar-volume-empty-font = 2;
     click-right = "pavucontrol";
   };
+  "module/memory_bar" = {
+    type = "internal/memory";
+    interval = 2;
+    format = "<bar-used> <label>";
+    format-prefix = " ";
+    label = "%mb_used:10%/%mb_total:10%";
+    bar-used-width = 10;
+    bar-used-gradient = false;
+    bar-used-indicator-foreground = "\$\{color.bi\}";
+    bar-used-indicator-font = 2;
+    bar-used-fill = "━";
+    bar-used-foreground-0 = "\$\{color.bn\}";
+    bar-used-foreground-1 = "\$\{color.bn\}";
+    bar-used-foreground-2 = "\$\{color.bn\}";
+    bar-used-foreground-3 = "\$\{color.bm\}";
+    bar-used-foreground-4 = "\$\{color.bm\}";
+    bar-used-foreground-5 = "\$\{color.bm\}";
+    bar-used-foreground-6 = "\$\{color.bd\}";
+    bar-used-foreground-7 = "\$\{color.bd\}";
+    bar-used-foreground-8 = "\$\{color.bd\}";
+    bar-used-fill-font = 2;
+    bar-used-empty = "┉";
+    bar-used-empty-foreground = "\$\{color.be\}";
+    bar-used-empty-font = 2;
+  };
 }

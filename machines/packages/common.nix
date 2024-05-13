@@ -7,6 +7,7 @@ in
 
   # common packages
   environment.systemPackages = with pkgs; [
+    procps
     powerline-go
     aria2
     bash-completion
