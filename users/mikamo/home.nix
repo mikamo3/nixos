@@ -9,6 +9,7 @@
     ./polybar.nix
     ./fontconfig.nix
     ./wezterm.nix
+    ./i3.nix
   ];
   home = rec {
     username = "mikamo";
@@ -32,9 +33,6 @@
   xdg.userDirs.createDirectories = true;
 
   #dotfiles
-  xdg.configFile = {
-    #i3
-    "i3/config".text = builtins.readFile ./config/i3/config;
-  };
+  xdg.configFile = { };
 
 }
