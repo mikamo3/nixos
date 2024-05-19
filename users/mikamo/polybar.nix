@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ wan_interface }: { pkgs, ... }:
 let
   polybar_launch_script = pkgs.writeShellScriptBin "polybar_launch" (builtins.readFile ./config/polybar/launch.sh);
 in
@@ -17,6 +17,6 @@ in
     // import ./config/polybar/bar.nix
     // import ./config/polybar/color.nix
     // import ./config/polybar/settings.nix;
-  services.polybar.script = "PATH=/run/current-system/sw/bin:\$PATH  ${polybar_launch_script}/bin/polybar_launch ";
+  services.polybar.script = "NET_INTERFACE=${wan_interface} PATH=/run/current-system/sw/bin:\$PATH  ${polybar_launch_script}/bin/polybar_launch ";
 }
 

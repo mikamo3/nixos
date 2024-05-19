@@ -45,6 +45,7 @@
     label-mounted = "%used:8%/%total:8%";
     bar-used-width = 10;
     bar-used-gradient = false;
+    bar-used-indicator = "";
     bar-used-indicator-foreground = "\$\{color.bi\}";
     bar-used-indicator-font = 2;
     bar-used-fill = "━";
@@ -167,6 +168,7 @@
     bar-used-width = 10;
     bar-used-gradient = false;
     bar-used-indicator-foreground = "\$\{color.bi\}";
+    bar-used-indicator = "";
     bar-used-indicator-font = 2;
     bar-used-fill = "━";
     bar-used-foreground-0 = "\$\{color.bn\}";

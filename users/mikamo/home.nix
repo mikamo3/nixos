@@ -1,4 +1,8 @@
 { config, lib, pkgs, ... }:
+let
+  wan_interface = "wlp1s0";
+  polybar = import ./polybar.nix { inherit wan_interface; };
+in
 {
   imports = [
     ./dunst.nix
@@ -6,7 +10,7 @@
     ./git.nix
     ./picom.nix
     ./rofi.nix
-    ./polybar.nix
+    polybar
     ./fontconfig.nix
     ./wezterm.nix
     ./i3.nix

@@ -50,49 +50,6 @@
     	{ key = 'j', mods = "ALT|SHIFT", action = act.ActivatePaneDirection 'Down' },
     }
 
-    wezterm.on("update-right-status", function(window, pane)
-    	local cwd = " "..pane:get_current_working_dir():sub(8).." "; -- remove file:// uri prefix
-    	local date = wezterm.strftime(" %H:%M:%S  %Y/%m/%d ");
-    	local hostname = " "..wezterm.hostname().." ";
-    	local name = window:active_key_table()
-    	if name then
-    		name = "Mode: " .. name
-      else
-        name =""
-    	end
-    	window:set_right_status(
-    		wezterm.format({
-    			{Foreground={Color="#ffffff"}},
-    			{Background={Color="#00875f"}},
-    			{Text=name},
-    		})..
-    		wezterm.format({
-    			{Foreground={Color="#ffffff"}},
-    			{Background={Color="#005f5f"}},
-    			{Text=cwd},
-    		})..
-    		wezterm.format({
-    			{Foreground={Color="#00875f"}},
-    			{Background={Color="#005f5f"}},
-    			{Text=""},
-    		})..
-    		wezterm.format({
-    			{Foreground={Color="#ffffff"}},
-    			{Background={Color="#00875f"}},
-    			{Text=date},
-    		})..
-    		wezterm.format({
-    			{Foreground={Color="#00af87"}},
-    			{Background={Color="#00875f"}},
-    			{Text=""},
-    		})..
-    		wezterm.format({
-    			{Foreground={Color="#ffffff"}},
-    			{Background={Color="#00af87"}},
-    			{Text=hostname},
-    		})
-    	);
-    end);
     return config
   '';
 }
