@@ -22,6 +22,10 @@
             {
               system = "x86_64-linux";
             };
+          host-a = { name, nodes, pkgs, ... }: {
+            boot.isContainer = true;
+            time.timeZone = nodes.host-b.config.time.timeZone;
+          };
           host-b = {
             deployment = {
               targetHost = "192.168.100.224";
