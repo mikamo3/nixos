@@ -11,6 +11,7 @@
     ./wezterm.nix
     ./i3.nix
     ./autorandr.nix
+    ./fonts.nix
   ];
   home = rec {
     username = "mikamo";

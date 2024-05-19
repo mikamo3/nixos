@@ -44,7 +44,7 @@ in
       (import ../../../pkgs/fonts/line-seed-jp { inherit pkgs; })
     ];
   };
-  # TODO:fontconfig
+
   i18n.inputMethod = {
     enabled = "fcitx5";
     fcitx5.addons = with pkgs; [
