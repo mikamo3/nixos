@@ -10,7 +10,7 @@
 
   outputs = { self, nixpkgs, nixos-hardware, home-manager, ... }@inputs:
     let
-      mkSystem = import ./lib/mksystem.nix {
+      mkSystem = import ./lib/mksystemcolmena.nix {
         inherit nixpkgs nixos-hardware home-manager;
       };
     in
@@ -23,13 +23,15 @@
               system = "x86_64-linux";
             };
         };
-        host-b = {
-          deployment = mkSystem {
-            name = "nuxbox";
-            user = "mikamo";
-            system = "x86_64-linux";
+        nucbox = {
+          deployment = {
+            targetHost = "192.168.100.224";
+            targetUser = "root";
           };
-
+        } // mkSystem {
+          name = "nucbox";
+          user = "mikamo";
+          system = "x86_64-linux";
         };
       };
 

@@ -1,7 +1,5 @@
 { config, lib, pkgs, modulesPath, currentSystemName, ... }:
-let
-  cpuType = lib.mkDefault "amd";
-in
+
 {
 
   #nix configure

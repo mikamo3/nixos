@@ -1,6 +1,5 @@
 { pkgs, lib, ... }:
 let
-  cpuType = lib.mkDefault "amd";
   useDocker = true;
 in
 {
@@ -51,10 +50,7 @@ in
     fd
     xz
     zip
-  ]
-  # microcode
-  ++ lib.optional (cpuType == "amd") pkgs.microcodeAmd
-  ++ lib.optional (cpuType == "intel") pkgs.microcodeIntel;
+  ];
 
   #program
   programs = {
