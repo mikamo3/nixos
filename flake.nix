@@ -16,6 +16,22 @@
     in
     {
 
+      colmena = {
+        meta = {
+          nixpkgs = import nixpkgs
+            {
+              system = "x86_64-linux";
+            };
+          host-b = {
+            deployment = {
+              targetHost = "192.168.100.224";
+              targetUser = "mikamo";
+            };
+            boot.isContainer = true;
+            time.timeZone = "America/Los_Angeles";
+          };
+        };
+      };
       nixosConfigurations.kvm-sandbox = mkSystem {
         name = "kvm-sandbox";
         user = "mikamo";
