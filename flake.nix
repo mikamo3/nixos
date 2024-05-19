@@ -22,20 +22,18 @@
             {
               system = "x86_64-linux";
             };
-          host-a = { name, nodes, pkgs, ... }: {
-            boot.isContainer = true;
-            time.timeZone = nodes.host-b.config.time.timeZone;
+        };
+        host-b = {
+          deployment = mkSystem {
+            name = "nuxbox";
+            user = "mikamo";
+            system = "x86_64-linux";
           };
-          host-b = {
-            deployment = {
-              targetHost = "192.168.100.224";
-              targetUser = "mikamo";
-            };
-            boot.isContainer = true;
-            time.timeZone = "America/Los_Angeles";
-          };
+
         };
       };
+
+
       nixosConfigurations.kvm-sandbox = mkSystem {
         name = "kvm-sandbox";
         user = "mikamo";
