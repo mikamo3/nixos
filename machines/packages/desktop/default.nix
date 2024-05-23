@@ -9,7 +9,7 @@ in
       xterm.enable = false;
     };
     displayManager = {
-      defaultSession = "i3";
+      defaultSession = "none+i3";
       lightdm.greeters.slick = {
         enable = true;
         font.name = "Noto Serif CJK JP";
