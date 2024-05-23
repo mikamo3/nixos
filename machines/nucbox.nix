@@ -11,6 +11,7 @@
     ./packages/networkclient
     ./packages/security
     ./packages/storage
+    ./packages/sound
   ]
   ++ (with nixos-hardware.nixosModules;
     [

@@ -1,7 +1,6 @@
 { config, lib, pkgs, ... }:
 let
   wan_interface = "wlp1s0";
-  polybar = import ./polybar.nix { inherit wan_interface; };
 in
 {
   imports = [
@@ -10,7 +9,6 @@ in
     ./git.nix
     ./picom.nix
     ./rofi.nix
-    polybar
     ./fontconfig.nix
     ./wezterm.nix
     ./i3.nix
@@ -22,6 +20,10 @@ in
     homeDirectory = "/home/${username}";
     stateVersion = "23.11";
   };
+  home.activation.createWritableDirectory = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+    mkdir -p ${config.home.homeDirectory}/google-drive
+    chmod 700 ${config.home.homeDirectory}/google-drive
+  '';
   systemd.user.targets.tray = {
     Unit = {
       Description = "Home Manager System Tray";
@@ -45,6 +47,7 @@ in
   services.network-manager-applet.enable = true;
   xdg.enable = true;
   home.packages = with pkgs; [
+    bumblebee-status
   ];
   xdg.userDirs.enable = true;
   xdg.userDirs.createDirectories = true;

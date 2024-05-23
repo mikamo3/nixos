@@ -1,8 +1,19 @@
-{ config, lib, ... }: {
+{ config, lib, pkgs, ... }: {
   xsession.windowManager.i3 = {
     enable = true;
+
     config = {
-      bars = [ ];
+      bars = [
+        {
+          position = "top";
+          fonts = {
+            names = [ "monospace" ];
+            size = 12.0;
+          };
+          trayOutput = "primary";
+          statusCommand = "${pkgs.bumblebee-status}/bin/bumblebee-status  -m cpu memory -p cpu.interval=5s";
+        }
+      ];
       modifier = "Mod4";
       fonts = {
         names = [ "monospace" ];
