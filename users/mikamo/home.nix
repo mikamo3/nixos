@@ -47,7 +47,22 @@ in
   services.network-manager-applet.enable = true;
   xdg.enable = true;
   home.packages = with pkgs; [
-    bumblebee-status
+    (bumblebee-status.override {
+      plugins = p: [
+        p.cpu
+        p.date
+        p.time
+        p.xrandr
+        p.bluetooth2
+        p.hostname
+        p.network_traffic
+        p.pipewire
+        p.shell
+        p.title
+        p.traffic
+        p.uptime
+      ];
+    })
   ];
   xdg.userDirs.enable = true;
   xdg.userDirs.createDirectories = true;
