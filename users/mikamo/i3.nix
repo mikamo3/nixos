@@ -25,8 +25,9 @@
             '';
           }
           {
-            trayOutput = null;
+            trayOutput = "none";
             position = "bottom";
+            workspaceButtons = false;
             fonts = {
               names = [ "PlemolJP Console NF" ];
               size = 12.0;

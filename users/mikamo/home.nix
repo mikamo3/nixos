@@ -1,6 +1,8 @@
 { config, lib, pkgs, ... }:
 let
   wan_interface = "wlp1s0";
+  username = "mikamo";
+  googledrive = import ./google-drive-ocamlfuse.nix { inherit username; };
 in
 {
   imports = [
@@ -14,16 +16,14 @@ in
     ./i3.nix
     ./autorandr.nix
     ./fonts.nix
+    googledrive
   ];
-  home = rec {
-    username = "mikamo";
+  home = {
+    username = "${username}";
     homeDirectory = "/home/${username}";
     stateVersion = "23.11";
   };
-  home.activation.createWritableDirectory = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-    mkdir -p ${config.home.homeDirectory}/google-drive
-    chmod 700 ${config.home.homeDirectory}/google-drive
-  '';
+
   systemd.user.targets.tray = {
     Unit = {
       Description = "Home Manager System Tray";
@@ -71,3 +71,4 @@ in
   xdg.configFile = { };
 
 }
+
