@@ -147,6 +147,7 @@
             "${modifier}+Tab" = "workspace next";
             "${modifier}+Shift+Tab" = "workspace prev";
             "${modifier}+d" = "exec rofi -show";
+            "${modifier}+shift+d" = "exec rofi -show p -modi p:'rofi-power-menu'";
             "${modifier}+e" = "exec nemo";
             # for rotary encorder
             "${modifier}+Left" = "resize shrink width 10 px or 10 ppt";

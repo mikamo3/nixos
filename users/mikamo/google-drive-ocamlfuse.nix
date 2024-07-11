@@ -1,8 +1,11 @@
 { username }: { config, pkgs, lib, ... }: {
 
   home.activation.createWritableDirectory = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-    mkdir -p ${config.home.homeDirectory}/google-drive
-    chmod 700 ${config.home.homeDirectory}/google-drive
+    if [ ! -d ${config.home.homeDirectory}/google-drive ]; then
+      echo "Creating ${config.home.homeDirectory}/google-drive"
+      mkdir -p ${config.home.homeDirectory}/google-drive
+      chmod 700 ${config.home.homeDirectory}/google-drive
+    fi
   '';
   systemd.user.services.google-drive = {
     Unit = {

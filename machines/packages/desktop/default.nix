@@ -76,6 +76,7 @@ in
     xfce.thunar-archive-plugin
     xfce.thunar-volman
     gnome.seahorse
+    cinnamon.nemo
   ];
 }
 
